@@ -25,7 +25,7 @@ dependencies:
     sdk: flutter
   http: ^0.13.1
   provider: ^5.0.0
-  photo_view: ^0.11.1
+  photo_view: ^0.13.0
   hive: ^2.0.3
   hive_flutter: ^1.0.0
   web_scraper: ^0.1.4
