@@ -42,6 +42,3 @@ flutter pub get
 flutter run --release
 ```
 I'm still investigating a better way to do this.
-
-### TODO
-- Image load time is slow sometimes, i need to check if it's code related or it's just my WiFi that's shit
