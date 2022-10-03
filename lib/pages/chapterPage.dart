@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
@@ -82,7 +81,7 @@ class _ChapterPageState extends State<ChapterPage> {
             title: new Text("No chapter found"),
             actions: <Widget>[
               TextButton(
-                child: Text('Oof'),
+                child: Text('Close'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -115,7 +114,7 @@ class _ChapterPageState extends State<ChapterPage> {
             title: new Text("No chapter found"),
             actions: <Widget>[
               TextButton(
-                child: Text('Oof'),
+                child: Text('Close'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -175,36 +174,39 @@ class _ChapterPageState extends State<ChapterPage> {
     );
   }
 
+  final ButtonStyle flatButtonStyle = TextButton.styleFrom(
+    foregroundColor: Colors.white,
+    backgroundColor: Colors.transparent,
+    disabledForegroundColor: Colors.black,
+    disabledBackgroundColor: Colors.grey,
+    padding: EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 10.0),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12.0),
+      side: BorderSide(color: Colors.white)
+    ),
+  );
+
   Widget _buildCarouselItem(BuildContext context, int itemIndex) {
     if (itemIndex == 0) {
       // Go to previous chapter page
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          FlatButton(
-            color: Colors.transparent,
-            textColor: Colors.white,
-            disabledColor: Colors.grey,
-            disabledTextColor: Colors.black,
-            padding: EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 10.0),
-            splashColor: Colors.blueGrey,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              side: BorderSide(color: Colors.white)
-            ),
-            onPressed: () => _goToPreviousChapter(),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.arrow_back, size: 25),
-                VerticalDivider(width: 10,),
-                Text(
-                  "Previous Chapter",
-                  style: TextStyle(fontSize: 17.0),
-                ),
-              ]
-            )
+          TextButton(
+              onPressed: () => _goToPreviousChapter(),
+              style: flatButtonStyle,
+              child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.arrow_back, size: 25),
+                    VerticalDivider(width: 10,),
+                    Text(
+                      "Previous Chapter",
+                      style: TextStyle(fontSize: 17.0),
+                    ),
+                  ]
+              )
           ),
         ],
       );
@@ -213,31 +215,22 @@ class _ChapterPageState extends State<ChapterPage> {
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          FlatButton(
-            color: Colors.transparent,
-            textColor: Colors.white,
-            disabledColor: Colors.grey,
-            disabledTextColor: Colors.black,
-            padding: EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 10.0),
-            splashColor: Colors.blueGrey,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              side: BorderSide(color: Colors.white)
-            ),
-            onPressed: () => _goToNextChapter(),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Next Chapter",
-                  style: TextStyle(fontSize: 17.0),
-                ),
-                VerticalDivider(width: 10,),
-                Icon(Icons.arrow_forward, size: 25),
-              ]
-            )
-          )
+          TextButton(
+              onPressed: () => _goToNextChapter(),
+              style: flatButtonStyle,
+              child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Next Chapter",
+                      style: TextStyle(fontSize: 17.0),
+                    ),
+                    VerticalDivider(width: 10,),
+                    Icon(Icons.arrow_forward, size: 25),
+                  ]
+              )
+          ),
         ],
       );
     } else {

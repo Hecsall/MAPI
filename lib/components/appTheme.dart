@@ -6,48 +6,26 @@ import 'colors.dart';
 ///
 /// Not all colors are customized, and only a few font styles are customized.
 ThemeData primaryTheme (String mode) {
-
   MaterialColor primaryMaterialColor;
   Color primaryTextColor;
   ColorScheme themeColorScheme;
 
-  if(mode == 'light'){
-    primaryMaterialColor = primaryLight;
-    primaryTextColor = lightTextColor;
-    themeColorScheme = ColorScheme(
-      primary: const Color(0xff6200ee),
-      primaryVariant: const Color(0xff3700b3),
-      secondary: const Color(0xff03dac6),
-      secondaryVariant: const Color(0xff018786),
-      surface: Colors.white,
-      background: lightPrimaryColor,
-      error: const Color(0xffb00020),
-      onPrimary: Colors.white,
-      onSecondary: Colors.grey,
-      onSurface: Colors.black,
-      onBackground: Colors.black,
-      onError: Colors.white,
-      brightness: Brightness.light,
-    );
-  } else {
-    primaryMaterialColor = primaryDark;
-    primaryTextColor = darkTextColor;
-    themeColorScheme = ColorScheme(
-      primary: const Color(0xffbb86fc),
-      primaryVariant: const Color(0xff3700B3),
-      secondary: const Color(0xff03dac6),
-      secondaryVariant: const Color(0xff03dac6),
-      surface: darkSecondaryColor,
-      background: darkPrimaryColor,
-      error: const Color(0xffcf6679),
-      onPrimary: Colors.black,
-      onSecondary: Colors.grey,
-      onSurface: Colors.white,
-      onBackground: Colors.white,
-      onError: Colors.black,
-      brightness: Brightness.dark,
-    );
-  }
+  primaryMaterialColor = primaryDark;
+  primaryTextColor = darkTextColor;
+  themeColorScheme = ColorScheme(
+    primary: const Color(0xffbb86fc),
+    secondary: const Color(0xff03dac6),
+    surface: darkSecondaryColor,
+    background: darkPrimaryColor,
+    error: const Color(0xffcf6679),
+    onPrimary: Colors.black,
+    onSecondary: Colors.grey,
+    onSurface: Colors.white,
+    onBackground: Colors.white,
+    onError: Colors.black,
+    brightness: Brightness.dark,
+  );
+
 
   return ThemeData(
     fontFamily: 'Roboto',

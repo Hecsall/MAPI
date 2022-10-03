@@ -74,7 +74,7 @@ Future<List<Manga>> getMangaList() async {
       Manga manga = Manga(
           title: mangaObject['s'],
           urlSafeTitle: mangaObject['i'],
-          cover: 'https://cover.nep.li/cover/${mangaObject['i']}.jpg',
+          cover: 'https://temp.compsci88.com/cover/${mangaObject['i']}.jpg',
           categories: mangaObject['g'],
           status: mangaObject['ss'],
           readChapters: []
